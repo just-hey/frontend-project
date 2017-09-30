@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
 var questions = [
   {
     //Ballroom
@@ -6,7 +7,7 @@ var questions = [
   answers: [
     {text: 'Naruto'},
     {text: 'Ballroom e Youkoso'},
-    {text: 'Psych'},
+    {text: 'Metalocalypse'},
     {text: 'Gilmore Girls'},
   ]
 },
@@ -26,7 +27,7 @@ var questions = [
   answers: [
     {text: 'The OC'},
     {text: 'Lucifer'},
-    {text: 'The Middle'},
+    {text: 'Rick and Morty'},
     {text: 'Limitless'},
   ]
 },
@@ -35,8 +36,8 @@ var questions = [
   video: 'a8iuQNC-jgo',
   answers: [
     {text: 'Castle'},
+    {text: 'The OC'},
     {text: 'NCIS'},
-    {text: 'Psych'},
     {text: 'The Voice'},
   ]
 },
@@ -50,20 +51,104 @@ var questions = [
     {text: 'Game of Thrones'},
   ]
 },
+{
+  //King of the Hill
+  video: 'W0-IpoyEHkE',
+  answers: [
+    {text: 'King of the Hill'},
+    {text: 'The Simpsons'},
+    {text: '24'},
+    {text: 'CSI'},
+  ]
+},
+{
+//How I Met Your Mother
+video: 'WgtHWXYDrbE',
+answers: [
+  {text: 'The Big Bang Therory'},
+  {text: 'Family Guy'},
+  {text: 'How I Met Your Mother'},
+  {text: 'New Girl'},
 ]
-//supposed to increase i by click each time an answer is clicked next question shows BUT IT DOESN'T WORK!?
-var buttonIncrease = document.getElementsByClassName('button')
-  for (var i = 0; i < buttonIncrease.length; i++) {
-    buttonIncrease[i].addEventListener('click', increaseI())
-  }
-  function increaseI() {
-    i
-    console.log(i);
-  }
-//this one variable controls what the function "populate()" uses.
-var i=0
-//on 'correct' button click increase score by 1
+},
+{
+//South Park
+video: 'XcQDrfhyNvA',
+answers: [
+  {text: "That 70's Show"},
+  {text: 'Robot Chicken'},
+  {text: 'How I Met Your Mother'},
+  {text: 'South Park'},
+]
+},
+{
+//The Walking Dead
+video: '2cymqAVPWuo',
+answers: [
+  {text: 'The Walking Dead'},
+  {text: 'The Exorcist'},
+  {text: 'Wayward Pines'},
+  {text: 'FOX and Friends'},
+]
+},
+{
+//Westworld
+video: 'rYelEUVQ50g',
+answers: [
+  {text: 'Deadwood'},
+  {text: 'Westworld'},
+  {text: 'Wayward Pines'},
+  {text: 'Branded'},
+]
+},
+{
+//Kimi ni Todoke
+video: 'yN8Rlp3Oi94',
+answers: [
+  {text: 'Toradora'},
+  {text: 'Barakamon'},
+  {text: 'Kimi ni Todoke'},
+  {text: 'Full Metal Alchemist'},
+]
+},
+{
+//Metalocalypse  
+video: 'q5x89Ppl85k',
+answers: [
+  {text: 'Korgoth of Barbaria'},
+  {text: 'Mr Pickles'},
+  {text: 'Sesame Street'},
+  {text: 'Metalocalypse'},
+]
+}
+]
+
+var answers = ['choice1', 'choice3', 'choice2', 'choice1', 'choice3','choice0','choice2','choice3','choice0','choice1','choice2','choice3']
+var i = 0  //counter that tracks what question currently on
 var score = 0
+
+      var clickedButton0 = document.getElementById("choice0")
+      clickedButton0.addEventListener('click', movingOn)
+
+      var clickedButton1 = document.getElementById("choice1")
+      clickedButton1.addEventListener('click', movingOn)
+
+      var clickedButton2 = document.getElementById("choice2")
+      clickedButton2.addEventListener('click', movingOn)
+
+      var clickedButton3 = document.getElementById("choice3")
+      clickedButton3.addEventListener('click', movingOn)
+
+
+function movingOn() {
+  //
+  document.getElementById('question').removeChild(document.getElementById('question').childNodes[7])
+  if (this.id === answers[i]) {
+    score++
+  }
+  populate(i++)
+}
+
 
 function populate() {
   var choices = ''
@@ -78,6 +163,7 @@ function populate() {
   else {
   //populates the audio for each question.
     shownQ.innerHTML += '<iframe width="0" height="0" frameborder="0" title="YouTube video player" type="text/html" src="http://www.youtube.com/embed/' + questions[i].video + '?enablejsapi=1"></iframe>'
+    console.log(i);
   //shows question what of what
     var currentQuestionNumber = i + 1
     var element = document.getElementById('progress')
@@ -95,12 +181,12 @@ populate()
 //This is needed code to make the Play,Pause,Stop buttons work!!! Avoid touching
 function callPlayer(func, args) {
   var iframes = document.getElementsByTagName('iframe');
-  for (var i = 0; i < iframes.length; ++i) {
-    if (iframes[i]) {
-      var src = iframes[i].getAttribute('src');
+  for (var k = 0; k < iframes.length; ++k) {
+    if (iframes[k]) {
+      var src = iframes[k].getAttribute('src');
       if (src) {
         if (src.indexOf('youtube.com/embed') != -1) {
-          iframes[i].contentWindow.postMessage(JSON.stringify({
+          iframes[k].contentWindow.postMessage(JSON.stringify({
               'event': 'command',
               'func': func,
               'args': args || []
@@ -110,69 +196,3 @@ function callPlayer(func, args) {
     }
   }
 }
-
-//scope issue? can't get the following block to work to increase i . once solved it will move the test to the next question.  still need to figure out how to track correct answers so show user their score.
-
-
-
-
-
-
-
-//PLAN FOR CHECKING CORRECT answers
-//each question/choice variable has a "correct" value which will === the value of the selected choice.  if it matches score +1.
-// example:
-// {
-//   //Ballroom
-// correct: 'Ballroom e Youkoso',
-// video: 'EefNiVvWAB0',
-// answers: [
-//   {text: 'Naruto'},
-//   {text: 'Ballroom e Youkoso'},
-//   {text: 'Psych'},
-//   {text: 'Gilmore Girls'},
-// ]
-// }
-//
-// if (user clicks element with innerHTML that === correct: ) {
-//   var score + 1
-// }
-//
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//THIS WORKS BUT HAS NO WAY OF INCREASING i WHEN USER SELECTS ANSWER
-
-  // function populate() {
-  //
-  //   //show question
-  //   var shownQ = document.getElementById('question')
-  //   for (var i = 0; i < questions.length; i++) {
-  //     shownQ.innerHTML += '<iframe width="0" height="0" frameborder="0" title="YouTube video player" type="text/html" src="http://www.youtube.com/embed/' + questions[i].video + '?enablejsapi=1"></iframe>'
-  //
-  //     //show question what of what
-  //     var currentQuestionNumber = i + 1
-  //     var element = document.getElementById('progress')
-  //     element.innerHTML = "Question: "+ currentQuestionNumber + "/" + questions.length
-  //
-  //   //show choices
-  //     for (var j = 0; j < questions.length; j++) {
-  //       var choices = document.getElementById('choice'+[j])
-  //       var question = questions[i]
-  //       choices.innerHTML = question.answers[j].text
-  //
-  //     }
-  //   }
-  // }
