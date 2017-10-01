@@ -112,7 +112,7 @@ answers: [
 ]
 },
 {
-//Metalocalypse  
+//Metalocalypse
 video: 'q5x89Ppl85k',
 answers: [
   {text: 'Korgoth of Barbaria'},
@@ -127,18 +127,17 @@ var answers = ['choice1', 'choice3', 'choice2', 'choice1', 'choice3','choice0','
 var i = 0  //counter that tracks what question currently on
 var score = 0
 
-      var clickedButton0 = document.getElementById("choice0")
+      var clickedButton0 = document.getElementById("btn0")
       clickedButton0.addEventListener('click', movingOn)
 
-      var clickedButton1 = document.getElementById("choice1")
+      var clickedButton1 = document.getElementById("btn1")
       clickedButton1.addEventListener('click', movingOn)
 
-      var clickedButton2 = document.getElementById("choice2")
+      var clickedButton2 = document.getElementById("btn2")
       clickedButton2.addEventListener('click', movingOn)
 
-      var clickedButton3 = document.getElementById("choice3")
+      var clickedButton3 = document.getElementById("btn3")
       clickedButton3.addEventListener('click', movingOn)
-
 
 function movingOn() {
   //
@@ -158,19 +157,17 @@ function populate() {
     var localStorageKey = prompt('Please enter your name')
     var localStorageValue = score
     localStorage.setItem(localStorageKey, localStorageValue)
-    console.log("too damn high!");
   }
   else {
   //populates the audio for each question.
     shownQ.innerHTML += '<iframe width="0" height="0" frameborder="0" title="YouTube video player" type="text/html" src="http://www.youtube.com/embed/' + questions[i].video + '?enablejsapi=1"></iframe>'
-    console.log(i);
   //shows question what of what
     var currentQuestionNumber = i + 1
     var element = document.getElementById('progress')
     element.innerHTML = "Question: "+ currentQuestionNumber + "/" + questions.length
   //shows choices
     for (var j = 0; j < questions.length; j++) {
-      choices = document.getElementById('choice'+[j])
+      choices = document.getElementById('btn'+[j])
       var question = questions[i]
       choices.innerHTML = question.answers[j].text
     }
