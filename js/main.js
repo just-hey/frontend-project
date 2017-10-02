@@ -123,7 +123,7 @@ answers: [
 }
 ]
 
-var answers = ['choice1', 'choice3', 'choice2', 'choice1', 'choice3','choice0','choice2','choice3','choice0','choice1','choice2','choice3']
+var answers = ['btn1', 'btn3', 'btn2', 'btn1', 'btn3','btn0','btn2','btn3','btn0','btn1','btn2','btn3']
 var i = 0  //counter that tracks what question currently on
 var score = 0
 
@@ -142,8 +142,11 @@ var score = 0
 function movingOn() {
   //
   document.getElementById('question').removeChild(document.getElementById('question').childNodes[7])
+  console.log(this.id);
   if (this.id === answers[i]) {
+    console.log(i);
     score++
+    console.log(score);
   }
   populate(i++)
 }

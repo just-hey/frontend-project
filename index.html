@@ -3,35 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Name That Show</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js" charset="utf-8"></script>
   </head>
   <body>
-    <div class="grid">
+    <div class="container grid">
       <div id="quiz">
-        <h1>Name the show</h1>
+        <div class="row">
+          <h1 class="col">Name that show</h1>
+        </div>
 
-        <hr>
 
-        <div class="controls" id="question">
-          <button onclick='javascript:void callPlayer("playVideo")'>Play</button>
+        <div class="row controls" id="question">
+          <button class="col controllerClicker" onclick='javascript:void callPlayer("playVideo")'>Play</button>
 
-          <button onclick='javascript:void callPlayer("pauseVideo")'>Pause</button>
+          <button class="col controllerClicker" onclick='javascript:void callPlayer("pauseVideo")'>Pause</button>
 
-          <button onclick='javascript:void callPlayer("stopVideo")'>Stop</button>
+          <button class="col controllerClicker" onclick='javascript:void callPlayer("stopVideo")'>Stop</button>
 
         </div>
 
 
-        <div class="buttons">
-          <button class="button" id="btn0"></button>
-          <button class="button" id="btn1"></button>
-          <button class="button" id="btn2"></button>
-          <button class="button" id="btn3"></button>
+        <div class="row buttons">
+          <button class="col button" id="btn0"></button>
+          <button class="col button" id="btn1"></button>
         </div>
-
-        <hr>
+        <div class="row buttons">
+          <button class="col button" id="btn2"></button>
+          <button class="col button" id="btn3"></button>
+        </div>
 
         <footer>
           <p id="progress"></p>
