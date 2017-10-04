@@ -155,26 +155,20 @@ function movingOn() {
 function populate() {
   var choices = ''
   var shownQ = document.getElementById('question')
-  if (i>=questions.length) {
-    //prompt for name and pair it with score then save it to localStorage
-    //after submitting prompt show list of highScores in identical container to what the quiz is housed in. getitem from localStorage by key of 'scores' and order them by localStorageValue
-    //make the localStorage variable an array. add each name and score to said array. then sort the array by highest score. this new sorted variable array will be the source for the highscore box that'll be made...
-    var localStorageValue = score
-    let currentHighString = localStorage.getItem('highScore')
-    let currentHighScore = JSON.parse(currentHighString)
-    console.log(currentHighScore);
-    //show current users score on screen and show previous highScore and player.
-    //if current users highscore >= previous, then replace/setItem
-    if (score >= currentHighScore) {
-      //prompt for their name and replace it.
-      var localStorageName = prompt('Please enter your name new champion')
-      localStorage.setItem('highScore', (localStorageName + ': ' + localStorageValue))
+  //set localStorage of highScore to 0.
+  var highestScore = localStorage.setItem('highScore', 0)
+  var stringHigh = localStorage.getItem('highScore')
+  var numberHigh = parseInt(stringHigh)
+//  var parseHigh = parse(viewHigh.value)
+  if (i >= questions.length) {
+    alert('You got '+score+' out of 12 correct!')
+    if (score >= numberHigh) {
+      alert("Congrats! You're the holder of the new high score!")
+      localStorage.setItem('highScore', score)
     }
     else {
-      //simply thank for playing via alert?
-      let thankForPlaying = alert('Thank you for playing!')
+      alert('Thanks for playing!')
     }
-
   }
   else {
   //populates the audio for each question.
