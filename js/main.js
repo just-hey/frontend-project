@@ -88,7 +88,7 @@ answers: [
   {text: 'The Walking Dead'},
   {text: 'The Exorcist'},
   {text: 'Wayward Pines'},
-  {text: 'FOX and Friends'},
+  {text: 'FOX News'},
 ]
 },
 {
@@ -159,13 +159,22 @@ function populate() {
     //prompt for name and pair it with score then save it to localStorage
     //after submitting prompt show list of highScores in identical container to what the quiz is housed in. getitem from localStorage by key of 'scores' and order them by localStorageValue
     //make the localStorage variable an array. add each name and score to said array. then sort the array by highest score. this new sorted variable array will be the source for the highscore box that'll be made...
-    var localStorageName = prompt('Please enter your name to save your score')
     var localStorageValue = score
+    let currentHighString = localStorage.getItem('highScore')
+    let currentHighScore = JSON.parse(currentHighString)
+    console.log(currentHighScore);
+    //show current users score on screen and show previous highScore and player.
+    //if current users highscore >= previous, then replace/setItem
+    if (score >= currentHighScore) {
+      //prompt for their name and replace it.
+      var localStorageName = prompt('Please enter your name new champion')
+      localStorage.setItem('highScore', (localStorageName + ': ' + localStorageValue))
+    }
+    else {
+      //simply thank for playing via alert?
+      let thankForPlaying = alert('Thank you for playing!')
+    }
 
-    localStorage.setItem('scores', (localStorageName + ': ' + localStorageValue))
-    let alertScores = alert('See how you measure up!')
-    let highScores = localStorage.getItem('scores'+[i])
-    console.log(highScores);
   }
   else {
   //populates the audio for each question.
