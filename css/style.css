@@ -12,11 +12,11 @@ body {
   background-color: #01aec1;
   display: inline-block;
   width: 250px;
-  font-size: 20px;
+  font-size: 30px;
   color: #ffffff;
   border: 1px solid #1d3c6a;
   border-radius: 50px;
-  margin: 5px 10px;
+  margin: 25px 10px 0px;
   padding: 10px;
 }
 
@@ -30,7 +30,8 @@ body {
 }
 
 .controllerClicker {
-  margin: 20px 0px -10px;
+  margin: 20px 5px;
+  border: 0;
 }
 
 .controllerClicker:hover {

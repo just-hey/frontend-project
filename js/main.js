@@ -142,11 +142,11 @@ var score = 0
 function movingOn() {
   //
   document.getElementById('question').removeChild(document.getElementById('question').childNodes[7])
-  console.log(this.id);
+  //console.log(this.id);
   if (this.id === answers[i]) {
-    console.log(i);
+    //console.log(i);
     score++
-    console.log(score);
+    //console.log(score);
   }
   populate(i++)
 }
@@ -157,9 +157,15 @@ function populate() {
   var shownQ = document.getElementById('question')
   if (i>=questions.length) {
     //prompt for name and pair it with score then save it to localStorage
-    var localStorageKey = prompt('Please enter your name')
+    //after submitting prompt show list of highScores in identical container to what the quiz is housed in. getitem from localStorage by key of 'scores' and order them by localStorageValue
+    //make the localStorage variable an array. add each name and score to said array. then sort the array by highest score. this new sorted variable array will be the source for the highscore box that'll be made...
+    var localStorageName = prompt('Please enter your name to save your score')
     var localStorageValue = score
-    localStorage.setItem(localStorageKey, localStorageValue)
+
+    localStorage.setItem('scores', (localStorageName + ': ' + localStorageValue))
+    let alertScores = alert('See how you measure up!')
+    let highScores = localStorage.getItem('scores'+[i])
+    console.log(highScores);
   }
   else {
   //populates the audio for each question.
