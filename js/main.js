@@ -127,17 +127,14 @@ var answers = ['btn1', 'btn3', 'btn2', 'btn1', 'btn3','btn0','btn2','btn3','btn0
 var i = 0  //counter that tracks what question currently on
 var score = 0
 
-      var clickedButton0 = document.getElementById("btn0")
-      clickedButton0.addEventListener('click', movingOn)
-
-      var clickedButton1 = document.getElementById("btn1")
-      clickedButton1.addEventListener('click', movingOn)
-
-      var clickedButton2 = document.getElementById("btn2")
-      clickedButton2.addEventListener('click', movingOn)
-
-      var clickedButton3 = document.getElementById("btn3")
-      clickedButton3.addEventListener('click', movingOn)
+var clickedButton0 = document.getElementById("btn0")
+  clickedButton0.addEventListener('click', movingOn)
+var clickedButton1 = document.getElementById("btn1")
+  clickedButton1.addEventListener('click', movingOn)
+var clickedButton2 = document.getElementById("btn2")
+  clickedButton2.addEventListener('click', movingOn)
+var clickedButton3 = document.getElementById("btn3")
+  clickedButton3.addEventListener('click', movingOn)
 
 function movingOn() {
   //
@@ -151,7 +148,6 @@ function movingOn() {
   populate(i++)
 }
 
-
 function populate() {
   var choices = ''
   var shownQ = document.getElementById('question')
@@ -159,7 +155,6 @@ function populate() {
   var highestScore = localStorage.setItem('highScore', 0)
   var stringHigh = localStorage.getItem('highScore')
   var numberHigh = parseInt(stringHigh)
-//  var parseHigh = parse(viewHigh.value)
   if (i >= questions.length) {
     alert('You got '+score+' out of 12 correct!')
     if (score >= numberHigh) {
