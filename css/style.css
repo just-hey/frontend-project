@@ -1,11 +1,10 @@
 body {
-  background-color: #eeeeee;
+  background: #eeeeee;
   background-image: url();
 }
 
 .buttons {
   margin-top: 30px;
-  /*width: 600px;*/
 }
 
 #btn0, #btn1, #btn2, #btn3 {
@@ -40,8 +39,6 @@ body {
 }
 
 .grid {
-  /*width: 700px;*/
-  /*height: 500px;*/
   margin: 50px auto;
   background-color: #fff;
   padding: 30px 50px 50px 50px;
@@ -64,6 +61,18 @@ body {
   font-family: sans-serif;
   font-size: 30px;
   color: #5a6772;
+}
+
+#playBtn {
+  background-color: #e80215;
+}
+
+#pauseBtn {
+  background-color: #c14566
+}
+
+#stopBtn {
+  background-color: #c14566
 }
 
 #progress {
