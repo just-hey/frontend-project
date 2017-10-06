@@ -10,6 +10,10 @@ Know Your Show is a fun and interactive quiz to see how familiar you are with a 
 
 Clone this repository and then simply open `index.html` with your favorite browser!
 
+## How to Play
+
+Simply click the red 'Play' button to begin the music and then select one of the show titles from the round button.
+
 ## Next Steps
 
 - [ ] Allow for a constant on screen score board
