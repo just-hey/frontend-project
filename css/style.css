@@ -65,14 +65,17 @@ body {
 
 #playBtn {
   background-color: #e80215;
+  color: black;
 }
 
 #pauseBtn {
-  background-color: #c14566
+  background-color: #e80215;
+  color: black;
 }
 
 #stopBtn {
-  background-color: #c14566
+  background-color: #e80215;
+  color: black;
 }
 
 #progress {
