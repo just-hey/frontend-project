@@ -3,8 +3,8 @@
 
 Know Your Show is a fun and interactive quiz to see how familiar you are with a a wide variety of televison shows based off their opening themes.
 
-![](screenshot.png)
-> [Demo Here](http://just-hey-know-your-show.surge.sh)
+![](img/screenshot2.png)
+ [Demo Here](know-your-show.surge.sh)
 
 ## Installation
 
