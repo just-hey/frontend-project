@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <title>Know Your Show</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
 
@@ -18,8 +21,6 @@
 
     <div class="container grid">
       <div id="quiz">
-        <!-- <p>(Click the "Play" button to start the audio!)</p> -->
-
         <div class="row controls" id="question">
           <button class="col controllerClicker btn" id="playBtn" onclick='javascript:void callPlayer("playVideo")'>Play</button>
 
@@ -42,6 +43,33 @@
         <footer>
           <p id="progress"></p>
         </footer>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#moreInfo">How to play</button>
+    <!-- Modal -->
+    <div class="modal fade" id="moreInfo" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <p>Welcome to <strong>Know Your Show</strong>!  A short quiz to test your ear and knowledge.  <hr>
+              How to play:
+              <br>
+              <br>
+              <ul>
+              <li>Click the "Play" button to listen to an Opening theme of a TV show.</li>
+              <li>Once you think you know the correct show the song belongs to make your selection and you'll be moved to the next show/song.</li>
+              <li>At the end you'll get to see how you did and your score will be saved in your browser's Local Storage.</li>  <hr>
+              <br>Hope you enjoy!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
